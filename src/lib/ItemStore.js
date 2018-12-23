@@ -54,6 +54,7 @@ class ItemStore extends EventEmitter {
     console.log({ itemToRemove })
     items = items.filter(item => item.id !== itemToRemove.id)
     this.emit('change')
+    console.log(this.emit('change'))
   }
 }
 
