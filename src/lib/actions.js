@@ -1,5 +1,5 @@
 import uniqueId from 'lodash'
-import AppDispatcher from './AppDispatcher'
+import AppDispatcher from './dispatcher'
 import { UPDATE_ITEM, REMOVE_ITEM, ADD_NEW_ITEM } from './constants'
 
 export const addItem = value => {

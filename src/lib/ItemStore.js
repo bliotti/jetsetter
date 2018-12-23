@@ -1,6 +1,8 @@
 import EventEmitter from 'events'
-import uniqueId from 'lodash'
-import AppDispatcher from './AppDispatcher'
+import uniqueId from 'lodash/uniqueId'
+
+import AppDispatcher from './dispatcher'
+
 import { UPDATE_ITEM, REMOVE_ITEM, ADD_NEW_ITEM } from './constants'
 
 let items = [
@@ -22,9 +24,12 @@ class ItemStore extends EventEmitter {
     super()
 
     AppDispatcher.register(action => {
-      if (action.type === ADD_NEW_ITEM) return this.addItem(action.item)
+      if (action.type === ADD_NEW_ITEM) {
+        return this.addItem(action.item)
+      }
       if (action.type === UPDATE_ITEM) return this.updateItem(action.item)
       if (action.type === REMOVE_ITEM) return this.removeItem(action.item)
+      console.log({ action })
     })
   }
 
